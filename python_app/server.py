@@ -34,14 +34,14 @@ def ping( request ):
 
 def ws_remove_closed_clients():
 	try:
-		print( f'{ len( app.ws_clients ) } clients' )
 		clients = app.ws_clients
 		closed_clients = []
 		for index , client in enumerate( clients ):
 			if str( client.state ) != "State.OPEN":
 				closed_clients.append( client )
+		#print( f'{ len( app.ws_clients ) } clients' )
 		for index , client in enumerate( closed_clients ):
-			print( "Removing Closed WS Client" )
+			#print( "Removing Closed WS Client" )
 			#pprint( vars( client ) )
 			app.ws_clients.remove( client )
 	except Exception as e:
